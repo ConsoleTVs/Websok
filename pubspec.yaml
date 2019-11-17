@@ -1,0 +1,15 @@
+name: websok
+description: A high level websocket library. Use it when working with websockets to avoid a few boilerplate and make your code look cleaner.
+version: 2.0.0
+author: Èrik Campobadal Forés <soc@erik.cat>
+homepage: https://erik.cat
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  meta: ^1.1.8
+  web_socket_channel: ^1.1.0
+
+dev_dependencies:
+  test: ^1.9.4
