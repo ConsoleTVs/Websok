@@ -1,5 +1,5 @@
 /// For HTML:
-/// import 'package:websok/io.dart';
+/// import 'package:websok/html.dart';
 ///
 /// For IO (Flutter, Dart, etc.)
 import 'package:websok/io.dart';

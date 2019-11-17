@@ -3,6 +3,7 @@ library websok;
 
 /// For the use of @required.
 import 'package:meta/meta.dart';
+
 /// Import the underlying package to use websockets.
 // import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -11,8 +12,7 @@ import 'package:web_socket_channel/status.dart' as status;
 /// The [Websock] class is used to create a new websocket connection.
 /// It maintains all the state, socket connection and streams and
 /// it abstracts it to a high level usage.
-abstract class Websok<C extends WebSocketChannel>
-{
+abstract class Websok<C extends WebSocketChannel> {
   /// Stores the host of the websocket server.
   final String host;
 
@@ -45,7 +45,7 @@ abstract class Websok<C extends WebSocketChannel>
     this.port = -1,
     this.query = const <String, String>{},
     this.protocols = const <String>[],
-    this.tls = false
+    this.tls = false,
   });
 
   /// Connects to the websocket server.
@@ -59,10 +59,18 @@ abstract class Websok<C extends WebSocketChannel>
   }
 
   /// Listens for different events and executes their callback.
-  void listen({ void onData(dynamic message), void onError(), void onDone(), bool cancelOnError }) =>
-    this.channel.stream.listen(
-      onData, onError: onError, onDone: onDone, cancelOnError: cancelOnError
-    );
+  void listen({
+    void onData(dynamic message),
+    void onError(),
+    void onDone(),
+    bool cancelOnError,
+  }) =>
+      this.channel.stream.listen(
+            onData,
+            onError: onError,
+            onDone: onDone,
+            cancelOnError: cancelOnError,
+          );
 
   /// Sends a message to the websocket.
   void send(String message) {

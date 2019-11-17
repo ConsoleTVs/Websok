@@ -9,7 +9,7 @@ Supports IO and HTML websockets.
 
 ```dart
 /// For HTML:
-/// import 'package:websok/io.dart';
+/// import 'package:websok/html.dart';
 ///
 /// For IO (Flutter, Dart, etc.)
 import 'package:websok/io.dart';
@@ -41,5 +41,4 @@ void main() {
     expect(sok.isActive, false);
   });
 }
-
 ```
