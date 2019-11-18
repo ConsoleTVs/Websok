@@ -19,14 +19,16 @@ class IOWebsok extends Websok<IOWebSocketChannel> {
   IOWebsok({
     @required String host,
     int port = -1,
-    this.headers = const <String, String>{},
+    String path = '',
     Map<String, String> query = const <String, String>{},
     Iterable<String> protocols = const <String>[],
+    this.headers = const <String, String>{},
     this.pingInterval,
     bool tls = false,
   }) : super(
           host: host,
           port: port,
+          path: path,
           query: query,
           protocols: protocols,
           tls: tls,

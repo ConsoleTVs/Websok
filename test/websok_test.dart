@@ -20,6 +20,8 @@ void main() {
       ..listen(onData: onData);
     // Assets the connection.
     expect(sok.isActive, true);
+    // Assets the URL.
+    expect(sok.url(), 'wss://echo.websocket.org:443/?');
     // Send a message.
     final message = 'Hello, world!';
     sok.send(message);

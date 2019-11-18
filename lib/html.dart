@@ -17,6 +17,7 @@ class HTMLWebsok extends Websok<HtmlWebSocketChannel> {
   HTMLWebsok({
     @required String host,
     int port = -1,
+    String path = '',
     Map<String, String> query = const <String, String>{},
     Iterable<String> protocols = const <String>[],
     this.binaryType = BinaryType.list,
@@ -24,6 +25,7 @@ class HTMLWebsok extends Websok<HtmlWebSocketChannel> {
   }) : super(
           host: host,
           port: port,
+          path: path,
           query: query,
           protocols: protocols,
           tls: tls,

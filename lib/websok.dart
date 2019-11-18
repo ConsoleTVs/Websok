@@ -28,6 +28,9 @@ abstract class Websok<C extends WebSocketChannel> {
   /// Determines the protocols used for the connection.
   final Iterable<String> protocols;
 
+  /// Stores the URL path.
+  final String path;
+
   /// Connects to the websocket given the following options.
   C connectWith(String url, Iterable<String> protocols);
 
@@ -43,18 +46,25 @@ abstract class Websok<C extends WebSocketChannel> {
   Websok({
     @required this.host,
     this.port = -1,
+    this.path = '',
     this.query = const <String, String>{},
     this.protocols = const <String>[],
     this.tls = false,
   });
 
-  /// Connects to the websocket server.
-  void connect() {
+  /// Returns the URL used to connect tpo the websocket.
+  String url() {
     final protocol = this.tls ? 'wss' : 'ws';
     final port = this.port != -1 ? this.port : (this.tls ? 443 : 80);
-    var url = '$protocol://${this.host}:$port?';
+    final path = this.path.startsWith('/') ? this.path.substring(1) : this.path;
+    var url = '$protocol://${this.host}:$port/$path?';
     this.query.forEach((key, value) => url += '$key=$value&');
-    this.channel = this.connectWith(url, this.protocols);
+    return url;
+  }
+
+  /// Connects to the websocket server.
+  void connect() {
+    this.channel = this.connectWith(this.url(), this.protocols);
     this.isActive = true;
   }
 

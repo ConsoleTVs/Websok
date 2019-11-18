@@ -1,3 +1,12 @@
+## [2.1.1] - Fixes to HTML websocket.
+
+* Fixed HTML websocket path.
+
+## [2.1.0] - Add additional paths to the connection URL.
+
+* Add additional paths to the connection URL.
+* Isolated and created a `.url()` function that returns the connection URL.
+
 ## [2.0.5] - Copyright to main lib.
 
 * Copyright to main lib.
