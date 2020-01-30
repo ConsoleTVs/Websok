@@ -71,7 +71,7 @@ abstract class Websok<C extends WebSocketChannel> {
   /// Listens for different events and executes their callback.
   void listen({
     void onData(dynamic message),
-    void onError(),
+    void onError(error),
     void onDone(),
     bool cancelOnError,
   }) =>
