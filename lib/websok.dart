@@ -38,13 +38,13 @@ abstract class Websok<C extends WebSocketChannel> {
   bool isActive = false;
 
   /// Stores the channel used in to send / receive messages.
-  C channel;
+  late C channel;
 
   /// Creates a new websok instance and connects to the websocket immidiatly.
   /// If no port is provided, 80 wil be used in case tls = false, otherwise,
   /// 443 will be used.
   Websok({
-    @required this.host,
+    required this.host,
     this.port = -1,
     this.path = '',
     this.query = const <String, String>{},
@@ -70,10 +70,10 @@ abstract class Websok<C extends WebSocketChannel> {
 
   /// Listens for different events and executes their callback.
   void listen({
-    void onData(dynamic message),
-    void onError(error),
-    void onDone(),
-    bool cancelOnError,
+    void onData(dynamic message)?,
+    void onError(error)?,
+    void onDone()?,
+    bool? cancelOnError,
   }) =>
       this.channel.stream.listen(
             onData,
@@ -91,7 +91,7 @@ abstract class Websok<C extends WebSocketChannel> {
   /// Returns a future which is completed when the stream sink has shut down.
   /// If cleaning up can fail, the error may be reported in the returned future,
   /// otherwise it completes with null.
-  Future<dynamic> close([int code = status.goingAway, String reason]) {
+  Future<dynamic> close([int code = status.goingAway, String? reason]) {
     this.isActive = false;
     return this.channel.sink.close(code, reason);
   }

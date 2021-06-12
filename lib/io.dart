@@ -13,11 +13,11 @@ class IOWebsok extends Websok<IOWebSocketChannel> {
 
   /// Determines the ping interval for the websocket.
   /// Null means no ping will be sent to the server.
-  final Duration pingInterval;
+  final Duration? pingInterval;
 
   /// Creates a new IO Websocket.
   IOWebsok({
-    @required String host,
+    required String host,
     int port = -1,
     String path = '',
     Map<String, String> query = const <String, String>{},
