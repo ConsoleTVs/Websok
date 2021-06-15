@@ -8,7 +8,7 @@ import 'package:websok/io.dart';
 import 'package:test/test.dart';
 
 /// The received string.
-String received;
+String? received;
 /// Callback to execute when the function is over.
 void onData(dynamic message) => received = message;
 
