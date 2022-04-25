@@ -1,9 +1,6 @@
 /// Copyright (c) 2019 - Èrik Campobadal Forés
 library websok;
 
-/// For the use of @required.
-import 'package:meta/meta.dart';
-
 /// Import the underlying package to use websockets.
 // import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';

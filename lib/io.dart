@@ -4,9 +4,6 @@ library websok.io;
 import 'package:websok/websok.dart';
 import 'package:web_socket_channel/io.dart';
 
-/// For the use of @required.
-import 'package:meta/meta.dart';
-
 class IOWebsok extends Websok<IOWebSocketChannel> {
   /// HTTP request headers when [connect()] is called.
   final Map<String, String> headers;

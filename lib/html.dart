@@ -4,9 +4,6 @@ library websok.html;
 import 'package:websok/websok.dart';
 import 'package:web_socket_channel/html.dart';
 
-/// For the use of @required.
-import 'package:meta/meta.dart';
-
 class HTMLWebsok extends Websok<HtmlWebSocketChannel> {
   /// controls what type is used for binary messages received by this socket.
   /// It defaults to [BinaryType.list], which causes binary messages to be delivered
