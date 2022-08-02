@@ -15,7 +15,7 @@ class IOWebsok extends Websok<IOWebSocketChannel> {
   /// Creates a new IO Websocket.
   IOWebsok({
     required String host,
-    int port = -1,
+    int? port,
     String path = '',
     Map<String, String> query = const <String, String>{},
     Iterable<String> protocols = const <String>[],

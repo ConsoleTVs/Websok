@@ -14,7 +14,7 @@ abstract class Websok<C extends WebSocketChannel> {
   final String host;
 
   /// Stores the port of the websocket server.
-  final int port;
+  final int? port;
 
   /// Stores if the connection is performed under TLS.
   final bool tls;
@@ -42,7 +42,7 @@ abstract class Websok<C extends WebSocketChannel> {
   /// 443 will be used.
   Websok({
     required this.host,
-    this.port = -1,
+    this.port,
     this.path = '',
     this.query = const <String, String>{},
     this.protocols = const <String>[],
@@ -52,9 +52,14 @@ abstract class Websok<C extends WebSocketChannel> {
   /// Returns the URL used to connect tpo the websocket.
   String url() {
     final protocol = this.tls ? 'wss' : 'ws';
-    final port = this.port != -1 ? this.port : (this.tls ? 443 : 80);
+    final port = this.port;
     final path = this.path.startsWith('/') ? this.path.substring(1) : this.path;
-    var url = '$protocol://${this.host}:$port/$path?';
+    String url = "";
+    if (port == null) {
+      url = '$protocol://${this.host}/$path?';
+    } else {
+      url = '$protocol://${this.host}:$port/$path?';
+    }
     this.query.forEach((key, value) => url += '$key=$value&');
     return url;
   }

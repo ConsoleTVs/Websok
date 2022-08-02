@@ -13,7 +13,7 @@ class HTMLWebsok extends Websok<HtmlWebSocketChannel> {
   /// Creates a new HTML web socket.
   HTMLWebsok({
     required String host,
-    int port = -1,
+    int? port,
     String path = '',
     Map<String, String> query = const <String, String>{},
     Iterable<String> protocols = const <String>[],
