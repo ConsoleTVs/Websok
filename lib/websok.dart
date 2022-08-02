@@ -56,11 +56,14 @@ abstract class Websok<C extends WebSocketChannel> {
     final path = this.path.startsWith('/') ? this.path.substring(1) : this.path;
     String url = "";
     if (port == null) {
-      url = '$protocol://${this.host}/$path?';
+      url = '$protocol://${this.host}/$path';
     } else {
-      url = '$protocol://${this.host}:$port/$path?';
+      url = '$protocol://${this.host}:$port/$path';
     }
-    this.query.forEach((key, value) => url += '$key=$value&');
+    if (query.isNotEmpty) {
+      url += "?";
+      this.query.forEach((key, value) => url += '$key=$value&');
+    }
     return url;
   }
 
