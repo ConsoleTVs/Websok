@@ -1,18 +1,17 @@
 name: websok
 description: A high level websocket library. Use it when working with websockets to avoid a few boilerplate and make your code look cleaner.
-version: 2.1.1
-author: Èrik Campobadal Forés <soc@erik.cat>
+version: 2.1.4
 homepage: https://erik.cat
 repository: https://github.com/ConsoleTVs/Websok
 documentation: https://github.com/ConsoleTVs/Websok
 issue_tracker: https://github.com/ConsoleTVs/Websok/issues
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   meta: ^1.1.8
-  web_socket_channel: ^2.1.0
+  web_socket_channel: ^2.2.0
 
 dev_dependencies:
   test: ^1.9.4
